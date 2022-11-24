@@ -1,0 +1,21 @@
+spring:
+  config:
+    import: optional:file:.env1[.properties]
+  profiles:
+    application:
+      name: usermanage
+    # 多环境配置，命令行执行：java -jar XXX-0.0.1-SNAPSHOT.jar --spring.profiles.active=dev
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+
+server:
+  error:
+    include-message: always
+  port: ${SERVER_PORT:8088}
+
+logging:
+  level:
+    org.springframework.web.client.RestTemplate: DEBUG
+    org.springframework.security.oauth2: DEBUG
+
+
+

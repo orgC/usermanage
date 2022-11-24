@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    url: ${USERMANAGE_DATASOURCE_URL:jdbc:postgresql://10.71.19.133:5432/mindraydemo}
+    username: ${USERMANAGE_DATASOURCE_USERNAME:postgres}
+    password: ${USERMANAGE_DATASOURCE_USERNAME:password}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${JWK_SET_URI:http://sso.example.com:8080/auth/realms/heroes/protocol/openid-connect/certs}
+
+
+logging:
+  level:
+    org.springframework.web.client.RestTemplate: DEBUG
+    org.springframework.security.oauth2: DEBUG
+
+server:
+  client-id: ${USERMANAGE_CLIENT_ID:demo-client}
+  client-secret: ${USERMANAGE_CLIENT_SECRET:OUXuSKoEUhyAuNteZdq2cWGZvHP09clf}
+  token-endpoint: ${SSO_SERVICE_ENDPOINT:sso.example.com:8080/auth/realms/heroes}
+  target-Service: ${ROLEMANAGE_SERVICE_ENDPOINT:http://rolemanage-service:8089}
