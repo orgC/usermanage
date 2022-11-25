@@ -2,7 +2,7 @@ spring:
   datasource:
     url: ${USERMANAGE_DATASOURCE_URL:jdbc:postgresql://10.71.19.133:5432/mindraydemo}
     username: ${USERMANAGE_DATASOURCE_USERNAME:postgres}
-    password: ${USERMANAGE_DATASOURCE_USERNAME:password}
+    password: ${USERMANAGE_DATASOURCE_PASSWORD:password}
     driver-class-name: org.postgresql.Driver
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
@@ -27,6 +27,6 @@ logging:
 
 server:
   client-id: ${USERMANAGE_CLIENT_ID:demo-client}
-  client-secret: ${USERMANAGE_CLIENT_SECRET:OUXuSKoEUhyAuNteZdq2cWGZvHP09clf}
-  token-endpoint: ${SSO_SERVICE_ENDPOINT:sso.example.com:8080/auth/realms/heroes}
-  target-Service: ${ROLEMANAGE_SERVICE_ENDPOINT:http://rolemanage-service:8089}
+  client-secret: ${USERMANAGE_CLIENT_SECRET:lwwAvhHVFIMEctRkyghbgWVRUHEak5oD}
+  token-endpoint: ${SSO_SERVICE_ENDPOINT:keycloak-rhsso.apps.infra-cluster.example.com/auth/realms/heroes}
+  target-Service: ${ROLEMANAGE_SERVICE_ENDPOINT:http://rolemanage-wss-app1.apps.infra-cluster.example.com}
